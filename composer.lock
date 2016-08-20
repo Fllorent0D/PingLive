@@ -1,0 +1,131 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "7dc35419507134d708322163986e4225",
+    "content-hash": "960a7673f74a08b42d99606448dd59de",
+    "packages": [
+        {
+            "name": "josegonzalez/dotenv",
+            "version": "0.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/josegonzalez/php-dotenv.git",
+                "reference": "c115996bbe105fd1066c4b550bfd84d1ed08e8f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/josegonzalez/php-dotenv/zipball/c115996bbe105fd1066c4b550bfd84d1ed08e8f2",
+                "reference": "c115996bbe105fd1066c4b550bfd84d1ed08e8f2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "josegonzalez\\Dotenv": [
+                        "src",
+                        "tests"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jose Diaz-Gonzalez",
+                    "email": "dotenv@josegonzalez.com",
+                    "homepage": "http://josediazgonzalez.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "dotenv file parsing for PHP",
+            "homepage": "https://github.com/josegonzalez/php-dotenv",
+            "keywords": [
+                "configuration",
+                "dotenv",
+                "php"
+            ],
+            "time": "2015-03-02 01:55:01"
+        },
+        {
+            "name": "swith/error",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SwithFr/SwithError.git",
+                "reference": "a25ebae2bc8af94af7e8a5dcaa1a6f18fbcc49cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SwithFr/SwithError/zipball/a25ebae2bc8af94af7e8a5dcaa1a6f18fbcc49cc",
+                "reference": "a25ebae2bc8af94af7e8a5dcaa1a6f18fbcc49cc",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SwithError\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "SwithFr",
+                    "email": "contact@swith.fr"
+                }
+            ],
+            "description": "Permet de gerer des erreurs (liees au framewirk swith/framework)",
+            "time": "2015-08-14 12:51:16"
+        },
+        {
+            "name": "swith/form",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SwithFr/SwithForm.git",
+                "reference": "271bab0da347bf9d8f89898fc6a87aaa5b87627f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SwithFr/SwithForm/zipball/271bab0da347bf9d8f89898fc6a87aaa5b87627f",
+                "reference": "271bab0da347bf9d8f89898fc6a87aaa5b87627f",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Swith\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "SwithFr",
+                    "email": "contact@swith.fr"
+                }
+            ],
+            "description": "A simple form helper",
+            "time": "2016-07-31 11:31:25"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "swith/error": 20,
+        "swith/form": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "~5.6.0"
+    },
+    "platform-dev": []
+}
