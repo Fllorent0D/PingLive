@@ -85,12 +85,12 @@ class Controller
     public $view = null;
 
 
-    public function __construct(Request $Request = null, $name)
+    public function __construct(Request $Request = null, $name, $session)
     {
         $this->Request = $Request;
         $this->view = $this->Request->prefixe ? $this->Request->prefixe . '_' . $this->Request->action : $this->Request->action;
         $this->name = $name;
-
+        $this->Session = $session;
         # On instancie automatiquement le model lié
         if ($this->hasModel) {
             $this->loadModel();
@@ -104,7 +104,6 @@ class Controller
                 $this->loadedComponents[] = $c;
             }
         }
-
         # Si des variables sont passées lors d'une redirection
         if ($this->Session->read('passedVars')) {
             $this->vars = unserialize($this->Session->read('passedVars'));

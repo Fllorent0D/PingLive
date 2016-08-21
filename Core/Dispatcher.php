@@ -49,7 +49,6 @@ class Dispatcher
         // On charge le bon controller
         try {
             $controller = $this->loadController();
-            $controller->Session = $this->Session;
         } catch (SwithException $e) {
             (new SwithError(['message' => "Le controller {$this->request->controller} est introuvable", "title"=>"Controlleur introuvable"]))->display();
         }
@@ -86,6 +85,6 @@ class Dispatcher
                 return false;
             }
         }
-        return new $controllerName($this->request, $this->request->controller);
+        return new $controllerName($this->request, $this->request->controller, $this->Session);
     }
 }

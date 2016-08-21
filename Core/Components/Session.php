@@ -38,7 +38,7 @@ class Session
     public function flash()
     {
         if (isset($_SESSION['flash'])) {
-            echo "<a href='#' class='alert alert-" . $_SESSION['flash']['type'] . "'>" . $_SESSION['flash']['message'] . "</a>";
+            echo "<div href='#' class='alert alert-" . $_SESSION['flash']['type'] . "'>" . $_SESSION['flash']['message'] . "</div>";
             unset($_SESSION['flash']);
         }
     }

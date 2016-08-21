@@ -7,7 +7,7 @@ class HomeController extends AppController
 {
 
     # Pas besoin de model pour cette page de démonstration
-    protected $hasModel = false;
+    public $hasModel = false;
 
     /**
      * Fonction d'accueil

@@ -6,6 +6,6 @@ use Core\Controllers\Controller;
 
 class AppController extends Controller
 {
-
+    public $hasModel = false;
 
 }
