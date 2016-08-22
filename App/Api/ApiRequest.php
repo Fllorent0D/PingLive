@@ -15,14 +15,15 @@ abstract class ApiRequest
     private $ch;
     private $timeout = 5;
     private $file;
-    private $separators = ['!!!','***', '$$$', '###','&&&','+++','---', '>>>','///', '===', '<<<' ];
     private $params = [];
     private $url;
+    protected $data;
     private $debug = false;
 
     public function getData()
     {
-        return $this->request();
+        $data = $this->request();
+        return $data;
     }
 
     protected function setFile($file)
@@ -48,14 +49,20 @@ abstract class ApiRequest
 
     private function fetch()
     {
-        $this->ch = curl_init();
         $this->generateUrl();
-        var_dump($this->url);
+        if($this->debug)
+            var_dump($this->url);
+
+        $this->ch = curl_init();
+
         curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($this->ch, CURLOPT_CONNECTTIMEOUT, $this->timeout);
         curl_setopt($this->ch, CURLOPT_URL, $this->url);
 
         $data = curl_exec($this->ch);
+
+        if($this->debug)
+            var_dump($data);
         curl_close($this->ch);
 
         return $data;

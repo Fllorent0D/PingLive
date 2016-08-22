@@ -16,4 +16,20 @@ class ListeForce extends ApiRequest
         $this->setFile('liste_force_messieurs');
         $this->setParam(['INDICE' => $club]);
     }
+    public function getIndiceClub()
+    {
+        if(!isset($this->data))
+            $this->request();
+
+        return $this->data[2];
+
+    }
+    public function getNomClub()
+    {
+        if(!isset($this->data))
+            $this->request();
+
+        return $this->data[3];
+
+    }
 }
