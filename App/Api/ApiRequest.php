@@ -28,6 +28,7 @@ abstract class ApiRequest
 
     protected function setFile($file)
     {
+        $this->paramChanged = true;
         $this->file = $file . ".php";
     }
     protected function setParam(array $param, $clear = false)
@@ -73,6 +74,9 @@ abstract class ApiRequest
 
         if($this->debug)
             var_dump($data);
+        if($data === false)
+            throw new \Exception('Une erreur est survenue lors de la connexion avec le back-end de la fédération. Message d\'erreur : <i>'.curl_strerror(curl_errno($this->ch)).'</i>');
+
         curl_close($this->ch);
 
         return $data;
