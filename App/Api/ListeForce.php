@@ -18,18 +18,12 @@ class ListeForce extends ApiRequest
     }
     public function getIndiceClub()
     {
-        if(!isset($this->data))
-            $this->request();
-
-        return $this->data[2];
+        return $this->request()[2];
 
     }
     public function getNomClub()
     {
-        if(!isset($this->data))
-            $this->request();
-
-        return $this->data[3];
+        return $this->request()[3];
 
     }
 }

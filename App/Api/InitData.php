@@ -17,18 +17,11 @@ class InitData extends ApiRequest
     }
     public function getClubs()
     {
-        if(!isset($this->data))
-            $this->request();
-
-        return $this->data[1];
+        return $this->request()[1];
     }
     public function getDivisions()
     {
-        if(!isset($this->data))
-            $this->request();
-
-        return $this->data[0];
-
+        return $this->request()[0];
     }
 
 }

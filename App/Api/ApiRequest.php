@@ -19,20 +19,25 @@ abstract class ApiRequest
     private $url;
     protected $data;
     private $debug = false;
+    private $paramChanged = false;
 
     public function getData()
     {
-        $data = $this->request();
-        return $data;
+        return $this->request();
     }
 
     protected function setFile($file)
     {
         $this->file = $file . ".php";
     }
-    protected function setParam(array $param)
+    protected function setParam(array $param, $clear = false)
     {
-        $this->params = array_merge($this->params, $param);
+        $this->paramChanged = true;
+
+        if($clear)
+            $this->params = $param;
+        else
+            $this->params = array_merge($this->params, $param);
     }
 
     protected function request()
@@ -40,7 +45,12 @@ abstract class ApiRequest
         if(!isset($this->file))
             throw new \Exception('Aucune information sur le fichier à récupérer');
 
-        return $this->decode($this->fetch());
+        if(!isset($this->data) || $this->paramChanged){
+            $this->data = $this->decode($this->fetch());
+            $this->paramChanged = false;
+        }
+
+        return $this->data;
     }
     private function generateUrl()
     {
