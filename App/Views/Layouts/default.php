@@ -1,4 +1,3 @@
-<?php use Core\Helpers\Html; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,7 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <?= Html::css('bootstrap.min'); ?>
-    <link href="dashboard.css" rel="stylesheet">
+    <?= Html::css('default'); ?>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

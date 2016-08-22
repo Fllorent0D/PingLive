@@ -8,7 +8,10 @@ use Core\Router;
  * En utilisant les routes vous pouvez changer ce comportement
  * en utilisant le router. Il vous suffit de suivre l'exemple ci-dessous
  */
-
+Router::get('/',[
+    "controller" => 'dashboard',
+    "action"     => 'index'
+]);
 Router::get('votre/url/{param1}/{param2}',[
     "controller" => 'controller',
     "action"     => 'action',

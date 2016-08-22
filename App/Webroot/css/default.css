@@ -1,152 +1,105 @@
-/* --------------------------------------------------------
-Feuille de style css par défaut du framework
+/*
+ * Base structure
+ */
 
-version: 1.0
-last modified: 24.04.2015 by Swith
-author: Jeremy Smith
-email: contact@swith.fr
-website: http://swith.fr
-----------------------------------------------------------*/
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+}
 
-/* ===============
-   RESET
-   =============== */
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite,
-del, dfn, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
     border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-body {
-    line-height: 1;
-}
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
 }
 
-/* ===============
-   GLOBAL SETTINGS
-   =============== */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
+/*
+ * Sidebar
+ */
 
-body {
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #65737e;
-    background-color: #f0f5ff;
-    margin: 0;
-    padding: 0;
-    font-weight: 300;
+/* Hide for mobile, show later */
+.sidebar {
+    display: none;
+}
+@media (min-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        background-color: #f5f5f5;
+        border-right: 1px solid #eee;
+    }
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
+/* Sidebar navigation */
+.nav-sidebar {
+    margin-right: -21px; /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
 }
-
-h1 {
-    font-size: 2em;
-    margin: 0;
-    padding: 4.5em 0 0;
-    text-transform: uppercase;
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
 }
-
-/* ===============
-   HEADINGS
-   =============== */
-.title--center {
-    text-align: center;
-}
-
-/* ===============
-   GRID
-   =============== */
-.container {
-    width: 60%;
-    margin: 0 auto;
-}
-
-/* ===============
-   ALERT
-   =============== */
-.alert {
-    width: 100%;
-    margin: 1em auto;
-    padding: 1em;
-    text-align: center;
-
-    border-radius: .2em;
-}
-
-.alert-warning {
-    color: #ffffff;
-    
-    border: 1px solid #e67e22;
-    background-color: #f39c12;
-}
-
-.alert-success {
-    color: #ffffff;
-
-    border: 1px solid #05e997;
-    background-color: #6de98d;
-}
-
-/* ===============
-   TYPOGRAPHY
-   =============== */
-.doc-help {
-    text-align: center;
-}
-
-.doc-link, .doc-link:visited {
-    color: #05e997;
-}
-
-/* ===============
-   HOME PAGE
-   =============== */
-header {
-    background: url(../img/home_bkg.jpg) no-repeat 50% 0px fixed;
-    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-    background-size: cover; /* version standardisée */
-    width: 100%;
-    height: 400px;
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
     color: #fff;
+    background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+    padding: 20px;
+}
+@media (min-width: 768px) {
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}
+.main .page-header {
+    margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.placeholders h4 {
+    margin-bottom: 0;
+}
+.placeholder {
+    margin-bottom: 20px;
+}
+.placeholder img {
+    display: inline-block;
+    border-radius: 50%;
 }

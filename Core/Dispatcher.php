@@ -31,8 +31,10 @@ class Dispatcher
         if(is_null($this->Session)) {
             $this->Session = new Session();
         }
+        $app = App::getInstance();
 
         // On initialise l'objet Request
+
         if($_ENV['USE_ROUTES']) {
             require('../Config/routes.php');
             $this->request = Router::run(new Request());
