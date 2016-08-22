@@ -6,5 +6,6 @@
  */
 
 return [
+    'App\Helpers\NavGenerator' => 'NavGenerator',
     # 'Namespace\class\originale' => 'alias',
 ];

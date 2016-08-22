@@ -15,10 +15,13 @@ class DashboardController extends AppController
 
     public function index()
     {
-        $this->needRender = false;
-
-        $test = new FeuilleMatch("P226261");
-        echo var_dump($test->getData());
+        try{
+            $test = new FeuilleMatch("P226261");
+            echo var_dump($test->getData());
+        }catch (\Exception $ex)
+        {
+            $this->Session->setFlash($ex->getMessage(), "danger");
+        }
     }
     public function test()
     {
