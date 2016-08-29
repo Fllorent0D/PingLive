@@ -9,16 +9,31 @@
 namespace App\Api;
 
 
+/**
+ * Permet de récupérer des information de base
+ * @package App\Api
+ */
 class InitData extends ApiRequest
 {
+    /**
+     * InitData constructor.
+     */
     function __construct()
     {
         $this->setFile('init_data');
     }
+
+    /**
+     * @return array
+     */
     public function getClubs()
     {
         return $this->request()[1];
     }
+
+    /**
+     * @return array
+     */
     public function getDivisions()
     {
         return $this->request()[0];

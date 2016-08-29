@@ -21,7 +21,13 @@ abstract class ApiRequest
     private $debug = false;
     private $paramChanged = false;
 
-    public function getData()
+    public function setDebug($debug)
+    {
+        if(is_bool($debug))
+            $this->debug = $debug;
+    }
+
+    public function getRawData()
     {
         return $this->request();
     }
@@ -74,6 +80,7 @@ abstract class ApiRequest
 
         if($this->debug)
             var_dump($data);
+
         if($data === false)
             throw new \Exception('Une erreur est survenue lors de la connexion avec le back-end de la fédération. Message d\'erreur : <i>'.curl_strerror(curl_errno($this->ch)).'</i>');
 
@@ -85,6 +92,7 @@ abstract class ApiRequest
     {
         $decoded = array();
         $splited = preg_split('/\!\!\!|\*\*\*|\$\$\$|\#\#\#|\&\&\&|\+\+\+|\-\-\-|\>\>\>|\/\/\/|\=\=\=|\<\<\</', $data);
+
         foreach($splited as $key => $item)
         {
             $response = json_decode($item);
@@ -92,6 +100,10 @@ abstract class ApiRequest
                 $response = $item;
             array_push($decoded, $response);
         }
+
+        if($this->debug)
+            var_dump($decoded);
+
         return $decoded;
     }
 

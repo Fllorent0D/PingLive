@@ -9,16 +9,27 @@
 namespace App\Api;
 
 
+/**
+ * Permet de récupérer la journée actuelle
+ * @package App\Api
+ */
 class Journee extends ApiRequest
 {
 
+    /**
+     * Journee constructor.
+     */
     public function __construct()
     {
         $this->setFile('journee');
     }
+
+    /**
+     * @return int
+     */
     public function getJourneeActuelle()
     {
-        return $this->request()[0];
+        return (int)$this->request()[0];
     }
 
 }
