@@ -13,7 +13,7 @@ abstract class ApiRequest
 {
     private $baseurl = "http://affrbtt-asbl.be/pda/";
     private $ch;
-    private $timeout = 5;
+    private $timeout = 15;
     private $file;
     private $params = [];
     private $url;

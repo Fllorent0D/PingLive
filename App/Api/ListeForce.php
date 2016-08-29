@@ -11,7 +11,7 @@ namespace App\Api;
 
 class ListeForce extends ApiRequest
 {
-    function __construct($club)
+    function __construct($club = "")
     {
         $this->setFile('liste_force_messieurs');
         $this->setParam(['INDICE' => $club]);

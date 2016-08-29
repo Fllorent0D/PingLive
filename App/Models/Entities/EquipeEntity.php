@@ -3,7 +3,7 @@
 namespace App\Models\Entities;
 
 
-class ProvincesEntity
+class EquipeEntity
 {
 
 

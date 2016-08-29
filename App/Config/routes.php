@@ -8,10 +8,19 @@ use Core\Router;
  * En utilisant les routes vous pouvez changer ce comportement
  * en utilisant le router. Il vous suffit de suivre l'exemple ci-dessous
  */
+/*
 Router::get('/',[
     "controller" => 'dashboard',
     "action"     => 'index'
+]);*/
+Router::get('api/infosclub/{id}',[
+    "controller" => "api",
+    "action" => "infosclub",
+    "params" => [
+        "id" => '/[0-9]+/'
+    ]
 ]);
+
 Router::get('votre/url/{param1}/{param2}',[
     "controller" => 'controller',
     "action"     => 'action',

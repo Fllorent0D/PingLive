@@ -222,7 +222,8 @@ class Model
     public function getFirst(array $conditions = null, array $joins = null, $table = null)
     {
         $result = $this->get($conditions, $joins, $table);
-        return $result[0];
+
+        return (isset($result[0]))? $result[0] : null;
     }
 
     /**
@@ -255,7 +256,7 @@ class Model
         foreach ($data as $k => $v) {
             $fields[] = $k;
             $tmp[] = ':' . $k;
-            $values[':' . $k] = htmlentities($v,ENT_QUOTES, "UTF-8");
+            $values[':' . $k] = $v;
         }
 
         $fields = "(" . implode(',', $fields) . ")";
@@ -293,7 +294,7 @@ class Model
         $values = $tmp = [];
 
         foreach ($data as $d => $v) {
-            $values[':' . $d] = htmlentities($v,ENT_QUOTES, "UTF-8");
+            $values[':' . $d] = $v;
             $tmp[] = $d . "=:" . $d;
         }
 
