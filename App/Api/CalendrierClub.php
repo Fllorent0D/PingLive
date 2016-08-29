@@ -16,4 +16,16 @@ class CalendrierClub extends ApiRequest
         $this->setFile('calendrier_par_club');
         $this->setParam(['INDICE' => $club]);
     }
+    public function getCalendrier()
+    {
+        return $this->request()[0];
+    }
+    public function getClub()
+    {
+        return $this->request()[2];
+    }
+    public function getIndice()
+    {
+        return $this->request()[1];
+    }
 }

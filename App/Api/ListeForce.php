@@ -16,14 +16,20 @@ class ListeForce extends ApiRequest
         $this->setFile('liste_force_messieurs');
         $this->setParam(['INDICE' => $club]);
     }
-    public function getIndiceClub()
+    public function getListeMessieurs()
+    {
+        return $this->request()[0];
+    }
+    public function getListeDames()
+    {
+        return $this->request()[1];
+    }
+    public function getIndice()
     {
         return $this->request()[2];
-
     }
-    public function getNomClub()
+    public function getClub()
     {
         return $this->request()[3];
-
     }
 }

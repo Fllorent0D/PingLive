@@ -25,6 +25,7 @@ class DashboardController extends AppController
             /*
              * Infos clubs
              */
+            /*
             $this->loadModel('Club');
             $this->loadModel('Responsable');
 
@@ -100,6 +101,7 @@ class DashboardController extends AppController
 
             }
 die;
+            */
 /* Clubs/Indices/provinces
              $request = new InitData();
                 $clubs = $request->getClubs();

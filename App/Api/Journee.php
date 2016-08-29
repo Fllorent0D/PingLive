@@ -16,6 +16,9 @@ class Journee extends ApiRequest
     {
         $this->setFile('journee');
     }
-
+    public function getJourneeActuelle()
+    {
+        return $this->request()[0];
+    }
 
 }

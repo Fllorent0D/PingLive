@@ -17,4 +17,5 @@ class TopIndividuel extends ApiRequest
         $this->setParam(['INDICE' => $indice]);
     }
 
+
 }

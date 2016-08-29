@@ -56,7 +56,9 @@ class NavGenerator
                 "icon" => ""
             ],
             "Debug ApiRequest" => [
-                "lien" => "#",
+                "lien" => [
+                    "debug", "index"
+                ],
                 "icon" => ""
             ]
 

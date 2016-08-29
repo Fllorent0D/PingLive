@@ -3,6 +3,8 @@
  */
 var url="http://pinglive.dev/api/";
 (function($) {
+    console.log($('a[data-id="8"]'));
+    $('a[data-id="8"]').click();
     var element = $('#informations'),
         originalY = element.offset().top;
 

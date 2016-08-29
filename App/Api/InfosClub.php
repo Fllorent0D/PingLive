@@ -16,4 +16,16 @@ class InfosClub extends ApiRequest
         $this->setFile('infosClubs');
         $this->setParam(["INDICE" => $club]);
     }
+    public function getInfoClub()
+    {
+        return $this->request()[0][0];
+    }
+    public function getInfoPratique()
+    {
+        return $this->request()[1][0];
+    }
+    public function getMembres()
+    {
+        return $this->request()[2];
+    }
 }
