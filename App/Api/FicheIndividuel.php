@@ -23,7 +23,6 @@ class FicheIndividuel extends ApiRequest
     {
         $this->setParam(["LICENCE" => $licence]);
         $this->setFile('fiche_indi');
-        $this->setDebug(true);
     }
 
     /**
@@ -40,7 +39,7 @@ class FicheIndividuel extends ApiRequest
     public function getVictoires()
     {
         $victoires = $this->request()[2];
-        return $this->merge($victoires, "V");
+        return $this->link($victoires, "V");
     }
 
     /**
@@ -49,7 +48,7 @@ class FicheIndividuel extends ApiRequest
     public function getDefaites()
     {
         $defaites = $this->request()[3];
-        return $this->merge($defaites, "D");
+        return $this->link($defaites, "D");
     }
 
     /**
@@ -57,7 +56,7 @@ class FicheIndividuel extends ApiRequest
      * @param $methode
      * @return array
      */
-    private function merge(array $resultats, $methode)
+    private function link(array $resultats, $methode)
     {
         $classements = $this->request()[1];
         $return = array();

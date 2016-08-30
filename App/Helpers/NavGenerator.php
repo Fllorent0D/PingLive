@@ -52,7 +52,9 @@ class NavGenerator
                 "icon" => ""
             ],
             "Informations clubs" => [
-                "lien" => "#",
+                "lien" => [
+                    "clubs", "index"
+                ],
                 "icon" => ""
             ],
             "Debug ApiRequest" => [

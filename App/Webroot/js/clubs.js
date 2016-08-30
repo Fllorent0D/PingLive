@@ -111,5 +111,6 @@ $("#clubs").on("click", ".club", function(e){
 
     request.fail(function( jqXHR, textStatus ) {
         console.log(textStatus);
-    });});
+    });
+});
 
