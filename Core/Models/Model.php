@@ -274,7 +274,7 @@ class Model
             $pdost->execute($values);
             return true;
         } catch (\PDOException $e) {
-            die($e->getMessage());
+            throw($e->getMessage());
         }
     }
 
@@ -310,7 +310,7 @@ class Model
             $pdost->execute($values);
             return true;
         } catch (\PDOException $e) {
-            die($e->getMessage());
+            throw($e->getMessage());
         }
     }
 

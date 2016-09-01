@@ -9,7 +9,6 @@ class ClubsController extends AppController
     {
         $this->loadModel("Province");
         $d["provinces"] = $this->Province->get();
-
         $this->set($d);
     }
 

@@ -45,13 +45,16 @@ $(".province").click(function(e){
     });
 
     request.done(function( msg ) {
-        $("ul#clubs").empty();
+        if(msg.status == "success")
+        {
+            $("ul#clubs").empty();
+            $.each(msg.data, function(index, club){
+                var newcell = $("<a>",{"href":"#", "class":"collection-item club","text":club.nom, "data-id":club.id});
+                $("ul#clubs").append(newcell);
+            });
+            $("#clubs").animateCss("animated fadeIn");
+        }
 
-        $.each(msg, function(index, club){
-            var newcell = $("<a>",{"href":"#", "class":"collection-item club","text":club.nom, "data-id":club.id});
-            $("ul#clubs").append(newcell);
-        });
-        $("#clubs").animateCss("animated fadeIn");
 
     });
 
@@ -71,42 +74,35 @@ $("#clubs").on("click", ".club", function(e){
     });
 
     request.done(function( msg ) {
+        if(msg.status == "success")
+        {
+            $("*#informations td").html("");
+            $("#responsables").empty();
 
-        $("*#informations td").html("");
-        $("#responsables").empty();
+            $.each(msg.data.infos, function(index, value){
+                if(value == '1')
+                    value = $('<i>',{"class":"material-icons", "text":"check"})
+                else if(value == '0')
+                    value = $('<i>',{"class":"material-icons", "text":"close"})
 
-        $.each(msg.infos, function(index, value){
-            if(value == '1')
-                value = $('<i>',{"class":"material-icons", "text":"check"})
-            else if(value == '0')
-                value = $('<i>',{"class":"material-icons", "text":"close"})
+                if (value.length == 0 || value == null|| value == "null" )
+                    value = $('<small>',{"text":"Aucune information"})
+                $("#"+index).html(value);
+            });
 
-            if (value.length == 0 || value == null)
-                value = $('<small>',{"text":"Aucune information"})
-            $("#"+index).html(value);
-        });
-        console.log(msg.infos.latitude);
 
-        $.each(msg.membres, function(index, club){
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: parseFloat(msg.data.infos.latitude), lng: parseFloat(msg.data.infos.longitude)},
+                scrollwheel: true,
+                zoom: 15
+            });
+            var marker = new google.maps.Marker({
+                position: {lat: parseFloat(msg.data.infos.latitude), lng: parseFloat(msg.data.infos.longitude)},
+                map: map,
+                label: msg.data.infos.nom
+            });
+        }
 
-            var newtitle = $("<h5>", {"class" : "", "text" : club.prenom + " " + club.nom});
-            var newdescri = $("<p>", {"class" : "", "text" : club.fonction});
-            var newligne = $("<div>", {"class" : "row"});
-            newligne.append(newtitle);
-            newligne.append(newdescri);
-            $("#responsables").append(newligne);
-
-        });
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: parseFloat(msg.infos.latitude), lng: parseFloat(msg.infos.longitude)},
-            scrollwheel: true,
-            zoom: 15
-        });
-        var marker = new google.maps.Marker({
-            position: {lat: parseFloat(msg.infos.latitude), lng: parseFloat(msg.infos.longitude)},
-            map: map,
-            label: msg.infos.nom
-        });
     });
 
     request.fail(function( jqXHR, textStatus ) {

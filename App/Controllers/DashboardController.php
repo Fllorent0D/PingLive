@@ -102,7 +102,7 @@ class DashboardController extends AppController
             }
 die;
             */
-/* Clubs/Indices/provinces
+            /* Clubs/Indices/provinces
              $request = new InitData();
                 $clubs = $request->getClubs();
             $this->loadModel('Club');
@@ -134,85 +134,7 @@ die;
 
 
 
-        /* Clubs/Equipes/Rencontres
-        try{
-            $this->loadModel("Division");
-            $this->loadModel("Club");
-            $this->loadModel("Equipe");
-            $this->loadModel("Rencontre");
 
-            $d["divisions"] = [];
-            $divisions = $this->Division->get(["where" => "id > 8502"]);
-            var_dump($divisions);
-            foreach ($divisions as $division)
-            {
-                $request = new CalendrierDivision($division->id);
-                $rencontres = $request->getData();
-                $equipes = [];
-                foreach ($rencontres as $rencontre)
-                {
-                    var_dump($rencontre);
-                    for($i = 1; $i <= 2; $i++)
-                    {
-                        $var = "NO".$i;
-                        $equi = "LE".$i;
-
-                        //Nouveau club
-                        $rencontre->$var = str_replace("'", '', $rencontre->$var);
-                        $checkClub = $this->Club->getFirst(["where" => ["nom" => $rencontre->$var]]);
-                        if(empty($checkClub))
-                        {
-                            $newClub = new \stdClass();
-                            $newClub->nom = ($rencontre->$var);
-                            $this->Club->create($newClub);
-                        }
-                        $idclub = $this->Club->getFirst(["where" => ["nom" => ($rencontre->$var)]])->id;
-
-
-                        //Nouvelle Equipe
-                        $checkEquipe = $this->Equipe->getFirst(["where" => ["lettre" => $rencontre->$equi, "club" => $idclub]]);
-                        if(empty($checkEquipe))
-                        {
-                            $newEquipe = new \stdClass();
-                            $newEquipe->lettre = $rencontre->$equi;
-                            $newEquipe->club = $idclub;
-                            $newEquipe->division = $division->id;
-                            $this->Equipe->create($newEquipe);
-                        }
-                        $equipes[$i-1] = $this->Equipe->getFirst(["where" => ["lettre" => $rencontre->$equi, "club" => $idclub]]);
-
-
-                    }
-                    if($rencontre->NO1 != "BYE" && $rencontre->NO2 != "BYE")
-                    {
-                        if(!empty($rencontre->HE1))
-                            $date = Carbon::createFromFormat('d/m/Y H\Hi', $rencontre->DAT . " ".$rencontre->HE1);
-                        else
-                            $date = Carbon::createFromFormat('d/m/Y', $rencontre->DAT);
-
-                        $checkMatch = $this->Rencontre->getFirst(["where" => ["visite" => $equipes[0]->id,"visiteur" => $equipes[1]->id, "journee" => $rencontre->JO]]);
-                        if(empty($checkMatch) && ($rencontre))
-                        {
-                            $newRencontre = new \stdClass();
-                            $newRencontre->visite = $equipes[0]->id;
-                            $newRencontre->visiteur = $equipes[1]->id;
-                            $newRencontre->date_match = $date->format("Y-m-d H:i:s");
-                            $newRencontre->feuille_match = $rencontre->ID;
-                            $newRencontre->journee = $rencontre->JO;
-                            $newRencontre->division = $division->id;
-                            var_dump($newRencontre);
-                            $this->Rencontre->create($newRencontre);
-                        }
-                    }
-
-
-
-
-
-                }
-
-            }
-*/
 
 
 
@@ -250,11 +172,31 @@ die;
 
             $this->Session->setFlash($ex->getMessage(), "danger");
         }
-        die;
     }
-
+    public function proute()
+    {
+        $test = new ListeForce("L360");
+        var_dump($test->getRawData());
+    }
     public function test()
     {
-
+        $this->loadModel('Division');
+        $this->loadModel('Rencontre');
+        $divisions = $this->Division->get();
+        foreach ($divisions as $division)
+        {
+            $request = new CalendrierDivision($division->id);
+            $rencontres = $request->getCalendrier();
+            foreach ($rencontres as $rencontre)
+            {
+                $record = $this->Rencontre->getFirst(["where" => ["feuille_match" => $rencontre->ID]]);
+                $updateRecord = new \stdClass();
+                $updateRecord->division = $division->id;
+                if(($record->division != $updateRecord->division)&&isset($record->id)){
+                    echo "ID : ".$record->feuille_match." | "."Old : ".$record->division. " | New : ".$updateRecord->division . "<br>";
+                    $this->Rencontre->update($record->id, $updateRecord);
+                }
+            }
+        }
     }
 }

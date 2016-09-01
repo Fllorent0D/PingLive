@@ -16,7 +16,7 @@ return [
      * Le controller appelé par défaut
      * tout comme l'action, il est utilisé pour la page d'accueil
      */
-    'default_controller' => 'home',
+    'default_controller' => 'dashboard',
 
     /**
      * Les préfixes que souhaitez rendre disponibles

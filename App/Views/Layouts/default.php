@@ -17,8 +17,10 @@
 
 
     <!-- Theme Styles -->
+    <?= Html::css('font-awesome.min'); ?>
     <?= Html::css('alpha.min'); ?>
     <?= Html::css('default'); ?>
+    <?= Html::css('animate') ?>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -118,7 +120,7 @@
     </aside>
     <main class="mn-inner">
             <?= $this->Session->flash(); ?>
-            <div class="row">
+            <div class="row" style="margin-bottom: 0px">
                 <?= $content_for_layout; ?>
             </div>
 
@@ -134,6 +136,7 @@
 <?= Html::js('materialize.min') ?>
 <?= Html::js('alpha.min') ?>
 <?= Html::js('dashboard') ?>
+<?= Html::js('jsend') ?>
 <?php if(isset($js_to_include)){foreach($js_to_include as $js){echo Html::js($js);}} ?>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzNpJHw55GbAt3gk4Oh0BuhArau3Aof88" async defer></script>
 

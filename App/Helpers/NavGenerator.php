@@ -16,52 +16,52 @@ class NavGenerator
     private static $nav = [
 
             "Calendrier" => [
-                "lien" => "#",
-                "icon" => "event"
+                "lien" => ["calendrier", ""],
+                "icon" => "calendar"
             ],
             "Résultats" =>[
                 "lien" => "#",
-                "icon" => ""
+                "icon" => "star"
             ],
             "Top 50" => [
                 "lien" => "#",
-                "icon" => ""
+                "icon" => "trophy"
             ],
             "Fiche personnel" => [
                 "lien" => "#",
-                "icon" => ""
+                "icon" => "user"
             ],
             "Préparer prochain match" => [
                 "lien" => "#",
-                "icon" => ""
+                "icon" => "share"
             ],
             "Match en direct" => [
                 "lien" => "#",
-                "icon" => ""
+                "icon" => "bullhorn"
             ],
             "Son club" => [
                 "lien" => "#",
-                "icon" => ""
+                "icon" => "home"
             ],
             "Listes de forces" => [
                 "lien" => "#",
-                "icon" => ""
+                "icon" => "list"
             ],
             "Equipes types" => [
                 "lien" => "#",
-                "icon" => ""
+                "icon" => "magic"
             ],
             "Informations clubs" => [
                 "lien" => [
-                    "clubs", "index"
+                    "clubs", ""
                 ],
-                "icon" => ""
+                "icon" => "info"
             ],
             "Debug ApiRequest" => [
                 "lien" => [
-                    "debug", "index"
+                    "debug", ""
                 ],
-                "icon" => ""
+                "icon" => "gear"
             ]
 
     ];
@@ -76,7 +76,7 @@ class NavGenerator
         $html ="";
         foreach (self::$nav as $key => $detail)
         {
-            $html .= "<li class=\"no-padding\">".Html::link($detail["lien"], "<i class=\"material-icons\">".$detail['icon']."</i>".$key, [], ["class"=>"waves-effect waves-grey"])."</li>";
+            $html .= "<li class=\"no-padding\">".Html::link($detail["lien"],Html::fa($detail["icon"]. " fa-fw") .$key, [], ["class"=>"waves-effect waves-grey"])."</li>";
         }
         return $html;
 

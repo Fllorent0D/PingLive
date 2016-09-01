@@ -55,8 +55,8 @@ class Dispatcher
             (new SwithError(['message' => "Le controller {$this->request->controller} est introuvable", "title"=>"Controlleur introuvable"]))->display();
         }
 
-        if (method_exists($controller, "beforeRender")) {
-            $controller->beforeRender();
+        if (method_exists($controller, "beforeAction")) {
+            $controller->beforeAction();
         }
 
         // On appelle la fonction
@@ -64,9 +64,13 @@ class Dispatcher
 
         $availablesActions = array_diff(get_class_methods($controller),get_class_methods(get_parent_class($controller)));
         if (in_array($action, $availablesActions)) {
-            call_user_func_array([$controller, $action], $this->request->params);
+            @call_user_func_array([$controller, $action], $this->request->params);
         } else {
             (new SwithError(['message' => "Le controller {$this->request->controller} n'a pas de methode $action", "title"=>"Methode introuvable"]))->display();
+        }
+
+        if (method_exists($controller, "beforeRender")) {
+            $controller->beforeRender();
         }
 
         $controller->render($controller->view);

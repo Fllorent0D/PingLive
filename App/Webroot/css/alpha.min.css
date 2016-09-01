@@ -554,6 +554,10 @@ nav .nav-wrapper ul li span.badge {
     -moz-box-sizing: border-box;
     box-sizing: border-box
 }
+.no-pad-bot
+{
+    padding-bottom: 0px;
+}
 .no-p,
 .no-s {
     padding: 0!important
@@ -1175,10 +1179,10 @@ li.active .nav-drop-icon {
     margin-right: 20px;
     color: #67696A
 }
-.side-nav ul li a i.material-icons {
+.side-nav ul li a i.fa {
     line-height: inherit;
-    margin: 0 20px 0 0;
-    width: auto
+    font-size: 17px;
+    margin: 0 10px 0 0;
 }
 .side-nav .collapsible-header {
     margin: 0;
