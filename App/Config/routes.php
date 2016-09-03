@@ -13,14 +13,15 @@ Router::get('/',[
     "controller" => 'dashboard',
     "action"     => 'index'
 ]);*/
-Router::get('api/infosclub/{id}',[
-    "controller" => "api",
-    "action" => "infosclub",
-    "params" => [
-        "id" => '/[0-9]+/'
-    ]
-]);
 
+Router::get('/login',[
+    "controller" => 'users',
+    "action"     => 'login',
+]);
+Router::get('/logout',[
+    "controller" => 'users',
+    "action"     => 'logout',
+]);
 Router::get('votre/url/{param1}/{param2}',[
     "controller" => 'controller',
     "action"     => 'action',

@@ -11,6 +11,7 @@ namespace App\Controllers;
 
 class CalendrierController extends AppController
 {
+    public $hasModel = false;
     public function index()
     {
 

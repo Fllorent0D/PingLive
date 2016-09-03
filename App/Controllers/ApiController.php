@@ -7,10 +7,10 @@ use Carbon\Carbon;
 
 class ApiController extends AppController
 {
-    private $data = null;
+    /*  API PRIVATE METHODS */
+    public $hasModel = false;
     private $status = "success";
-
-    //Methode pour gérer le JSend
+    private $data = null;
     public function beforeAction()
     {
         $this->loadModel("Club");
@@ -42,6 +42,7 @@ class ApiController extends AppController
     {
         $this->status = $status;
     }
+    /*  END API METHODS */
 
 
     public function infosclub($id)
@@ -106,10 +107,7 @@ class ApiController extends AppController
     }
     public function rencontre($division, $journee)
     {
-
-
         $response = $this->Rencontre->getRencontres($division, $journee);
-
         $this->setData($response);
     }
 

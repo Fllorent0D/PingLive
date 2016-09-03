@@ -1,7 +1,7 @@
 /**
  * Created by florentcardoen on 24/08/16.
  */
-var url="http://pinglive.dev/api/";
+var url="http://pingmanager.dev/api/";
 (function($) {
     console.log($('a[data-id="8"]'));
     $('a[data-id="8"]').click();

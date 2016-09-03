@@ -135,17 +135,16 @@ class Router
 
             // On regarde si on a des paramettres définis par {param}
             // Si c'est le cas
+
             if ($route->hasParams()) {
                 // On prend le bout de route qui nous interesse (donc sans les paramettres)
                 $route->url = str_replace($route->paramsRouted, '', $route->url);
 
                 // On récupère les paramettres de l'url de l'utilisateur
                 $params_url = $route->getUserParams($r_url);
-
                 // Et on leur enlève les /, { et }
                 $route->cleanParams();
             }
-
             // On regarde si la route courrante ($route->url) est présente dans l'url de l'utilisateur
             $request->isRooted = !!preg_match('/(' . addcslashes($route->url, '/') . ')/', $r_url, $matches);
 

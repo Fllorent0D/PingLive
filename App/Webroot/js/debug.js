@@ -1,4 +1,4 @@
-var url="http://pinglive.dev/api/";
+var url="http://pingmanager.dev/api/";
 var number;
 $("#rencontres #updateRencontre").click(function(){
     $("#rencontres #updateRencontre").toggleClass('disabled');
