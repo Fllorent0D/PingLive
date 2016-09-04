@@ -23,6 +23,8 @@ class Auth
                 return false;
             } else {
                 $_SESSION['id'] = $user->id;
+                $_SESSION['login'] = $user->login;
+
                 if (isset($user->role)) {
                     $_SESSION['role'] = $user->role;
                 }

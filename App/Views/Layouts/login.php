@@ -78,6 +78,8 @@
         <div class="valign">
             <div class="row">
                 <div class="col s12 m6 l4 offset-l4 offset-m3">
+                    <h1 class="center-align white-text " style="font-family: Roboto; font-weight: lighter"><?= \App\Helpers\NavGenerator::$brand ?></h1>
+
                     <?= $content_for_layout; ?>
                     <?= $this->Session->flash(); ?>
 

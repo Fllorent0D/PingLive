@@ -11,5 +11,8 @@ class ClubsController extends AppController
         $d["provinces"] = $this->Province->get();
         $this->set($d);
     }
+    public function profil($indice)
+    {
 
+    }
 }

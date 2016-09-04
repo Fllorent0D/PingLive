@@ -57,7 +57,7 @@
                     </a>
                 </section>
                 <div class="header-title col s3 m3">
-                    <span class="chapter-title">PingManager - DEV</span>
+                    <span class="chapter-title"><?= \App\Helpers\NavGenerator::$brand ?> - DEV</span>
                 </div>
 
                 <ul class="right col s9 m3 nav-right-menu">
@@ -138,7 +138,7 @@
 <?= Html::js('dashboard') ?>
 <?= Html::js('jsend') ?>
 <?php if(isset($js_to_include)){foreach($js_to_include as $js){echo Html::js($js);}} ?>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzNpJHw55GbAt3gk4Oh0BuhArau3Aof88" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzNpJHw55GbAt3gk4Oh0BuhArau3Aof88"></script>
 
 </body>
 </html>

@@ -12,7 +12,7 @@ use Core\Helpers\Html;
 
 class NavGenerator
 {
-    private static $brand = "PingManager";
+    public static $brand = "uPong";
     private static $nav = [
 
             "Calendrier" => [

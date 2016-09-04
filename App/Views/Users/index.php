@@ -2,7 +2,6 @@
 use Core\Helpers\Form;
 $title_for_layout = "PingManager - Connexion";
 ?>
-<h1 class="center-align white-text " style="font-family: Roboto; font-weight: lighter">PingManager</h1>
 <div class="card white darken-1 ">
     <div class="card-content z-depth-5">
         <span class="card-title">Se connecter</span>
