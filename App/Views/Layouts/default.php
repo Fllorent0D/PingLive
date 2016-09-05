@@ -104,7 +104,7 @@
             <div class="sidebar-account-settings">
                 <ul>
                     <li class="no-padding">
-                        <a class="waves-effect waves-grey"><i class="material-icons">exit_to_app</i>Déconnexion</a>
+                        <?= \Core\Helpers\Html::link('logout', "<i class=\"fa fa-sign-out\"></i>Déconnexion", [], ["class" => 'waves-effect waves-grey']) ?>
                     </li>
                 </ul>
             </div>
@@ -137,8 +137,9 @@
 <?= Html::js('alpha.min') ?>
 <?= Html::js('dashboard') ?>
 <?= Html::js('jsend') ?>
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyDzNpJHw55GbAt3gk4Oh0BuhArau3Aof88" ></script>
+
 <?php if(isset($js_to_include)){foreach($js_to_include as $js){echo Html::js($js);}} ?>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzNpJHw55GbAt3gk4Oh0BuhArau3Aof88"></script>
 
 </body>
 </html>
