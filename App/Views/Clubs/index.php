@@ -24,7 +24,7 @@ $js_to_include = ["mansonry", "clubs"];
     </div>
 
 </div>
-<div class="row ">
+<div class="row center-align">
     <?php foreach ($clubs as $index => $c): ?>
         <div id="test<?= $index ?>" class="col s12 grid">
             <?php foreach ($c as $club): ?>
