@@ -16,4 +16,5 @@ class Equipe extends AppModel
         return $all;
     }
 
+
 }

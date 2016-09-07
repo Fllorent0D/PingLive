@@ -16,4 +16,17 @@ class CalendrierController extends AppController
     {
 
     }
+    public function club($indice)
+    {
+        $this->loadModel('Rencontre');
+        $this->loadModel('Equipe');
+
+        $d["equipes"] = $this->Equipe->getFromClub($indice);
+        foreach ($d["equipes"] as $key => $equipe)
+        {
+            $d["rencontres"][$key] = $this->Rencontre->getRencontresEquipe($equipe->id);
+        }
+
+        $this->set($d);
+    }
 }

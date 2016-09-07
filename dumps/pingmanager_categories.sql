@@ -1,0 +1,14 @@
+INSERT INTO pingmanager.categories (nom) VALUES ('NATIONAL MESSIEURS');
+INSERT INTO pingmanager.categories (nom) VALUES ('WALLONIE - BRUXELLES MESSIEURS');
+INSERT INTO pingmanager.categories (nom) VALUES ('PROVINCIAL MESSIEURS BBW');
+INSERT INTO pingmanager.categories (nom) VALUES ('PROVINCIAL MESSIEURS HAINAUT');
+INSERT INTO pingmanager.categories (nom) VALUES ('PROVINCIAL MESSIEURS LIEGE');
+INSERT INTO pingmanager.categories (nom) VALUES ('PROVINCIAL MESSIEURS Lx');
+INSERT INTO pingmanager.categories (nom) VALUES ('PROVINCIAL MESSIEURS NAMUR A.');
+INSERT INTO pingmanager.categories (nom) VALUES ('NATIONAL DAMES');
+INSERT INTO pingmanager.categories (nom) VALUES ('WALLONIE - BRUXELLES DAMES');
+INSERT INTO pingmanager.categories (nom) VALUES ('PROVINCIAL DAMES BBW');
+INSERT INTO pingmanager.categories (nom) VALUES ('PROVINCIAL DAMES HAINAUT');
+INSERT INTO pingmanager.categories (nom) VALUES ('PROVINCIAL DAMES  LIEGE');
+INSERT INTO pingmanager.categories (nom) VALUES ('PROVINCIAL DAMES Lx');
+INSERT INTO pingmanager.categories (nom) VALUES ('PROVINCIAL DAMES NAMUR A.');

@@ -1,0 +1,1 @@
+INSERT INTO pingmanager.users (login, password) VALUES ('f.cardoen@me.com', '188b7cedd95cc7e84379e140df0a572fe063f9a6');

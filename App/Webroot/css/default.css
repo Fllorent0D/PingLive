@@ -3,3 +3,13 @@
 {
     line-height: 1;
 }
+.grid-item
+{
+    padding: 5px;
+    width: 400px;
+}
+.grid {
+
+     width:  100%;
+ }
+

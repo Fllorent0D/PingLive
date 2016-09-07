@@ -6,7 +6,7 @@
  * Time: 14:41
  */
 $title_for_layout = "Informations clubs";
-$js_to_include = ["clubs"];
+$js_to_include = ["mansonry", "clubs"];
 ?>
 
 
@@ -24,11 +24,11 @@ $js_to_include = ["clubs"];
     </div>
 
 </div>
-<div class="row">
+<div class="row ">
     <?php foreach ($clubs as $index => $c): ?>
-        <div id="test<?= $index ?>" class="col s12">
+        <div id="test<?= $index ?>" class="col s12 grid">
             <?php foreach ($c as $club): ?>
-                <div class="col s12 m3 center-align">
+                <div class="center-align grid-item">
                     <div class="card white darken-1">
                         <div class="card-content">
                             <h6 style="font-size: 20px"><?= $club->nom ?></h6>
@@ -36,7 +36,7 @@ $js_to_include = ["clubs"];
                         </div>
                         <div class="card-action">
                             <?= \Core\Helpers\Html::link(["clubs", "profil"], "Informations", [$club->indice]) ?>
-                            <a href="#">Calendrier</a>
+                            <?= \Core\Helpers\Html::link(["calendrier", "club"], "Calendrier", [$club->indice]) ?>
                         </div>
                     </div>
                 </div>

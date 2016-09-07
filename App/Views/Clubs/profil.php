@@ -1,5 +1,6 @@
 <?php
 $js_to_include = ["profil"];
+
 $title_for_layout = "Informations clubs - ".$infos->nom;?>
 <div class="row">
 

@@ -97,7 +97,13 @@ abstract class ApiRequest
         {
             $response = json_decode($item);
             if ($response === null)
-                $response = $item;
+            {
+                if($item == "null")
+                    $response = null;
+                else
+                    $response = $item;
+
+            }
             array_push($decoded, $response);
         }
 

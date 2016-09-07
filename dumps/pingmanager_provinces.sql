@@ -1,0 +1,11 @@
+INSERT INTO pingmanager.provinces (nom) VALUES ('AF');
+INSERT INTO pingmanager.provinces (nom) VALUES ('ANVERS');
+INSERT INTO pingmanager.provinces (nom) VALUES ('BBT FLAMAND');
+INSERT INTO pingmanager.provinces (nom) VALUES ('BBW');
+INSERT INTO pingmanager.provinces (nom) VALUES ('FL. OCCIDENTALE');
+INSERT INTO pingmanager.provinces (nom) VALUES ('FL. ORIENTALE');
+INSERT INTO pingmanager.provinces (nom) VALUES ('HAINAUT');
+INSERT INTO pingmanager.provinces (nom) VALUES ('LIEGE');
+INSERT INTO pingmanager.provinces (nom) VALUES ('LIMBOURG');
+INSERT INTO pingmanager.provinces (nom) VALUES ('LUXEMBOURG');
+INSERT INTO pingmanager.provinces (nom) VALUES ('NAMUR');

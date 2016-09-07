@@ -9,4 +9,5 @@ $(function() {
         position: {lat: parseFloat(document.getElementById('map').getAttribute("latitude")), lng: parseFloat(document.getElementById('map').getAttribute("longitude"))},
         map: map,
     });
+
 });

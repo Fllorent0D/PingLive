@@ -128,8 +128,11 @@ class ApiController extends AppController
             foreach ($femmes as $i => $femme) {
                 $femmes[$i]->sexe = "F";
             }
+            if(isset($femmes))
+                $listeforce = array_merge($femmes, $hommes);
+            else
+                $listeforce = $hommes;
 
-            $listeforce = array_merge($femmes, $hommes);
             foreach ($listeforce as  $joueur)
             {
                 $newjoueur = new \stdClass();

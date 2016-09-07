@@ -3,6 +3,7 @@
 namespace App\Config;
 
 
+
 class App
 {
     /**
@@ -34,14 +35,13 @@ class App
     {
         // Récupération des des paramettres
         $this->app_settings = require(BASE . DS . 'App' . DS . 'Config' . DS . 'app_config.php');
-
         // Chargement de l'envrionnement
         //$env = $this->app_settings['environments_ip'][$_SERVER['SERVER_ADDR']];
         $env = "dev";
         if (!file_exists('../Config/' . $env . '.env')) {
             die('Le fichier de configuration de l‘environnement <code>' . $env . '.env</code> est introuvable !');
         }
-
+        setlocale(LC_TIME, 'Belgium');
         $this->registerAliases();
 
         (new \josegonzalez\Dotenv\Loader('../Config/' . $env . '.env'))->parse()->toEnv();
