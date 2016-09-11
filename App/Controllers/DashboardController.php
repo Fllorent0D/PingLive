@@ -175,8 +175,9 @@ die;
     }
     public function proute()
     {
-        $test = new ListeForce("L360");
-        var_dump($test->getRawData());
+        $this->needRender = false;
+        $test = new FeuilleMatch('171881');
+        var_dump($test->getMatchs());
     }
     public function test()
     {

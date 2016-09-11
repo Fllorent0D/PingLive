@@ -177,6 +177,7 @@ class ApiController extends AppController
 
             $rencontres = $test->getCalendrier();
 
+
             if($rencontres == "null")
             {
                 throw new \Exception("Aucune rencontre récupérée");
@@ -227,6 +228,7 @@ class ApiController extends AppController
                     $date = Carbon::createFromFormat('d/m/Y', $rencontre->DAT);
 
                 $newRencontre->date_match = $date->format("Y-m-d H:i:s");
+                $newRencontre->IC = $rencontre->IDC;
                 //$newRencontre->division = $checkEquipe->division;
 
 
