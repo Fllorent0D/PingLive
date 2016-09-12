@@ -29,14 +29,14 @@ class FeuilleMatch extends ApiRequest
     {
         $this->checkComplete();
 
-        return $this->getJoueurs("JVId");
+        return $this->getJoueurs("JVId", "visite_j");
     }
 
     public function getJoueursVisiteur()
     {
         $this->checkComplete();
 
-        return $this->getJoueurs("JTId");
+        return $this->getJoueurs("JTId", "visiteur_j");
     }
 
     /**
@@ -59,7 +59,7 @@ class FeuilleMatch extends ApiRequest
             throw new \Exception("La feuille de match n'est pas encodée dans le système");
     }
 
-    private function getJoueurs($key)
+    private function getJoueurs($key, $index)
     {
         $this->checkComplete();
 
@@ -68,7 +68,7 @@ class FeuilleMatch extends ApiRequest
         $players = array();
 
         for ($i = 0; $i < count($weirdteams); $i++) {
-            $players[$i + 1] = $weirdteams[$i]->$key;
+            $players[$index . ($i + 1)] = $weirdteams[$i]->$key;
         }
 
         return $players;
@@ -99,11 +99,11 @@ class FeuilleMatch extends ApiRequest
         $return = array();
         for ($i = 0; $i < count($matchs); $i++) {
             $newMatch = new \stdClass();
-            $newMatch->numore = $i + 1;
+            $newMatch->numero_match = $i + 1;
             $newMatch->numero_visite = $matchs[$i]->NV;
             $newMatch->numero_visiteur = $matchs[$i]->NT;
-            $newMatch->id_visiteur = $visiteur[$matchs[$i]->NT];
-            $newMatch->id_visite = $visite[$matchs[$i]->NV];
+            //$newMatch->id_visiteur = $visiteur[$matchs[$i]->NT];
+            //$newMatch->id_visite = $visite[$matchs[$i]->NV];
             $newMatch->sets_visite = $matchs[$i]->SV;
             $newMatch->sets_visiteur = $matchs[$i]->ST;
             $newMatch->total_visite = $matchs[$i]->TV;

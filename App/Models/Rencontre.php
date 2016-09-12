@@ -63,4 +63,19 @@ class Rencontre extends AppModel
         $results = $req->fetchAll(\PDO::FETCH_CLASS, 'App\\Models\\Entities\\RencontreEntity');
         return $results;
     }
+    public function getRencontreToUpdate()
+    {
+        $sql = "select IC
+                from rencontres
+                where date_match < NOW()
+                and complete = 0
+                and visite is not null
+                and visiteur is not null";
+        $req = $this->bdd->prepare($sql);
+        $req->execute();
+        $results = $req->fetchAll(\PDO::FETCH_CLASS, 'App\\Models\\Entities\\RencontreEntity');
+        return $results;
+    }
+
+
 }

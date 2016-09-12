@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Api\CalendrierClub;
 use App\Api\ListeForce;
+use App\Api\FeuilleMatch;
 use Carbon\Carbon;
 
 class ApiController extends AppController
@@ -13,6 +14,7 @@ class ApiController extends AppController
     private $data = null;
     public function beforeAction()
     {
+        $this->loadModel("Match");
         $this->loadModel("Club");
         $this->loadModel("Responsable");
         $this->loadModel('Equipe');
@@ -253,4 +255,41 @@ class ApiController extends AppController
 
 
     }
+    public function getFeuilleToImport()
+    {
+        $this->setData($this->Rencontre->getRencontreToUpdate());
+    }
+    public function importFeuilleMatch($num)
+    {
+        //$num = 171881;
+        $feuille = new FeuilleMatch($num);
+        if($feuille->isComplete())
+        {
+            //Update joueurs du match
+            $jv = $feuille->getJoueursVisite();
+            $jt = $feuille->getJoueursVisiteur();
+            $feuille_match = $feuille->getNumeroFeuilleMatch();
+
+            $players = array_merge($jv, $jt);
+            $rencontre = $this->Rencontre->getFirst(["where" => ["IC" => $num]]);
+            $object = json_decode(json_encode($players), FALSE);
+            $object->complete = 1;
+            $this->Rencontre->update($rencontre->id, $object);
+
+
+            foreach ($feuille->getMatchs() as $match)
+            {
+                $match->rencontre = $rencontre->id;
+                $this->Match->create($match);
+            }
+
+        }
+        else
+        {
+            $this->setData($num." : La feuille match n'est pas encodée sur le serveur de l'AFTT");
+            $this->setStatus("error");
+        }
+
+    }
+
 }
