@@ -198,17 +198,21 @@ class ApiController extends AppController
 
                 //On regarde si l'équipe avec cette lettre existe
                 $checkEquipe = $this->Equipe->getFirst(["where" => ["club" => $club->id, "lettre" => $lettre]]);
+                $newEquipe = new \stdClass();
+                $newEquipe->lettre = $lettre;
+                $newEquipe->club = $club->id;
+                $newEquipe->petit_nom = $prefix;
                 if($checkEquipe === null)
                 {
-                    // Inscrire une nouvelle équipe
-                    $newEquipe = new \stdClass();
-                    $newEquipe->lettre = $lettre;
-                    $newEquipe->club = $club->id;
                     //$newEquipe->division = $checkEquipe->division;
                     $this->Equipe->create($newEquipe);
 
                     //On refait une requete pour avoir l'id de la nouvelle équipe
                     $checkEquipe = $this->Equipe->getFirst(["where" => ["club" => $club->id, "lettre" => $lettre]]);
+                }
+                else
+                {
+                    $this->Equipe->update($checkEquipe->id, $newEquipe);
                 }
 
                 //On crée un objet contenant la rencontre

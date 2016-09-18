@@ -176,8 +176,10 @@ die;
     public function proute()
     {
         $this->needRender = false;
-        $test = new FeuilleMatch('171881');
-        var_dump($test->getMatchs());
+        $test = new CalendrierDivision(8027);
+        //$test = new FeuilleMatch(171881);
+
+        var_dump($test->getRawData());
     }
     public function test()
     {

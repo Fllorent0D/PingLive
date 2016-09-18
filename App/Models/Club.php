@@ -8,6 +8,7 @@ class Club extends AppModel
     public $joins = [
         'provinces'=>'province',
     ];
+
     public function getProvinces()
     {
         return $this->get(["fields" => "distinct(province)", "where" => "province is not null", "order" => "province"]);
