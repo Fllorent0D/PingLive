@@ -14,10 +14,11 @@ Router::get('/',[
     "action"     => 'index'
 ]);*/
 
-Router::get('/login',[
+Router::any('/login',[
     "controller" => 'users',
     "action"     => 'login',
 ]);
+
 Router::get('/logout',[
     "controller" => 'users',
     "action"     => 'logout',

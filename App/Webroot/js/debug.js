@@ -1,4 +1,4 @@
-var url="http://pingmanager.dev/api/";
+var url="http://beping.be/api/";
 var number;
 $("#rencontres #updateRencontre").click(function(){
     $("#rencontres #updateRencontre").toggleClass('disabled');

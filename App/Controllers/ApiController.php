@@ -270,13 +270,29 @@ class ApiController extends AppController
         if($feuille->isComplete())
         {
             //Update joueurs du match
-            $jv = $feuille->getJoueursVisite();
-            $jt = $feuille->getJoueursVisiteur();
-            $feuille_match = $feuille->getNumeroFeuilleMatch();
-
-            $players = array_merge($jv, $jt);
             $rencontre = $this->Rencontre->getFirst(["where" => ["IC" => $num]]);
-            $object = json_decode(json_encode($players), FALSE);
+
+            $teams["visite"] = $feuille->getJoueursVisite();
+            $teams["visiteur"] = $feuille->getJoueursVisiteur();
+
+            foreach ($teams as $lieu => $players)
+            {
+                $newPlayer = new \stdClass();
+                if($lieu =="visite")
+                    $newPlayer->equipe = $rencontre->visite;
+                else
+                    $newPlayer->equipe = $rencontre->visiteur;
+
+                foreach ($players as $numero => $player)
+                {
+                    $newPlayer->numero = $numero;
+                    $newPlayer->licence_joueur = $player;
+                    $newPlayer->rencontre = $rencontre->id;
+                    $this->Rencontre->create($newPlayer, "joueurs_match");
+                }
+            }
+            //$object = json_decode(json_encode($players), FALSE);
+            $object = new \stdClass();
             $object->complete = 1;
             $this->Rencontre->update($rencontre->id, $object);
 

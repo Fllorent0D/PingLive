@@ -29,14 +29,14 @@ class FeuilleMatch extends ApiRequest
     {
         $this->checkComplete();
 
-        return $this->getJoueurs("JVId", "visite_j");
+        return $this->getJoueurs("JVId");
     }
 
     public function getJoueursVisiteur()
     {
         $this->checkComplete();
 
-        return $this->getJoueurs("JTId", "visiteur_j");
+        return $this->getJoueurs("JTId");
     }
 
     /**
@@ -59,7 +59,7 @@ class FeuilleMatch extends ApiRequest
             throw new \Exception("La feuille de match n'est pas encodée dans le système");
     }
 
-    private function getJoueurs($key, $index)
+    private function getJoueurs($key)
     {
         $this->checkComplete();
 
@@ -68,7 +68,7 @@ class FeuilleMatch extends ApiRequest
         $players = array();
 
         for ($i = 0; $i < count($weirdteams); $i++) {
-            $players[$index . ($i + 1)] = $weirdteams[$i]->$key;
+            $players[($i + 1)] = $weirdteams[$i]->$key;
         }
 
         return $players;

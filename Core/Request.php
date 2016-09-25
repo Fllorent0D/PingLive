@@ -23,8 +23,8 @@ class Request
     {
         $default_controller = ucfirst($app->getAppSettings("default_controller"));
 
-        if (isset($_SERVER['PATH_INFO'])) {
-            $this->url = $_SERVER['PATH_INFO'];
+        if (isset($_SERVER['REQUEST_URI'])) {
+            $this->url = $_SERVER['REQUEST_URI'];
         } else {
             $this->url = (!is_null($default_controller) ? $default_controller : "Controller") . "/" . $app->getAppSettings("default_action");
         }
